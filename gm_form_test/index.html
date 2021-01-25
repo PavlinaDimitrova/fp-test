@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./css/style.css">
+<script type="text/javascript" src="./js/jquery-3.5.1.js"></script> 
+<script type="text/javascript" src="./js/gmform.js"></script> 
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2IKZSn8IzJUVeF1yh8h-iCBhMJ69j2Fg&callback=initMap&libraries=places&v=weekly" defer></script>
+<title>Contact form</title>
+</head>
+<body><form  method="get" id="gmform">
+  <h1>Contact form</h1>
+  <label for="name">Name <input type="text" value="" class="ls" id="name" name="name"   autofocus></label>
+  <label for="address">Address<input type="text" value="" class="ls" id="address" name="address" ></label>
+  <label for="email">E-Mail <input type="email" value="" class="ls" id="email" name="email" ></label>
+  <label for="tel">Telephone<input type="tel" value="" class="ls" id="tel" name="telephone"  pattern="0[0-9]{3} [0-9]{3} [0-9]{3}"></label>
+  <span id="telformat">(format 0xxx xxx xxx)</span>
+  <label for="web">Website <input type="url" value="" class="ls" id="web" name="weburl" /> </label>
+  <input type="submit" class="" value="Save" onclick="validateName();">
+</form>  <div id="map"> </div></body></html>
