@@ -1,28 +1,4 @@
 let map;
-document.addEventListener("DOMContentLoaded", function() {
-	document.getElementById("name").onfocusout = function(){$("#namevalidation").remove();validateName();};
-	document.getElementById("address").onfocusout = function(){$("#addressvalidation").remove();validateAddress();};
-	document.getElementById("tel").onfocusout = function(){$("#telvalidation").remove();validatePhone();};
-	document.getElementById("email").onfocusout = function(){$("#emailvalidation").remove();validateemail();};
-	document.getElementById("web").onfocusout = function(){$("#webvalidation").remove();validateWeb();};
-    document.getElementById("gmform").onsubmit = function() {
-    document.querySelectorAll(".validation").forEach(element => element.remove());
-		if(validateName()==false || validateAddress()==false || validateemail()==false || validatePhone()==false || validateWeb()==false){
-	    event.preventDefault();
-		}else{
-			if (localStorage.getItem(document.getElementById("email").value)) {
-			   document.getElementById("email").insertAdjacentHTML('afterend', "<p id='emailvalidation' class='validation'>This email address already exists!</p>");
-        		document.getElementById("email").focus();
-        		event.preventDefault();
-			} else {
-			    var myForm = [];
-				 $('.ls').each(function(){myForm.push(JSON.stringify($(this).val())) ;});
-				localStorage.setItem(document.getElementById("email").value,myForm);			
-				event.preventDefault();
-			}
-		}	
-};});
-
 function validateName(){
 	if(document.getElementById("name").value==''){
 		document.getElementById("name").insertAdjacentHTML('afterend', "<p id='namevalidation' class='validation'>Please insert name!</p>");
@@ -76,10 +52,38 @@ function validateWeb(){
         return false;
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("name").onfocusout = function(){$("#namevalidation").remove();validateName();};
+	document.getElementById("address").onfocusout = function(){$("#addressvalidation").remove();validateAddress();};
+    document.getElementById("gmform").onsubmit = function() {
+    document.querySelectorAll(".validation").forEach(element => element.remove());
+		if(validateName()==false || validateAddress()==false || validateemail()==false || validatePhone()==false || validateWeb()==false){
+	    event.preventDefault();
+		}else{
+			if (localStorage.getItem(document.getElementById("email").value)) {
+			    document.getElementById("email").insertAdjacentHTML('afterend', "<p id='emailvalidation' class='validation'>This email address already exists!</p>");
+        		document.getElementById("email").focus();
+        		event.preventDefault();
+			} else {
+			    var myForm = [];
+				 $('.ls').each(function(){myForm.push(JSON.stringify($(this).val())) ;});
+				localStorage.setItem(document.getElementById("email").value,myForm);
+						
+				event.preventDefault();
+			}
+		}	
+};});
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), { center: { lat: 43.527, lng: 25.574 }, zoom: 8,});
-  const input = document.getElementById("address");
-  const autocomplete = new google.maps.places.Autocomplete(input);
+const uluru = { lat: 43.8559990, lng: 25.9710007 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 8,
+          center: uluru,
+        });
+         const image =  "../gm_form_test/images/x.png";
+        const beachMarker = new google.maps.Marker({
+    position: uluru, map, icon: image,content:'<h4>Русе</h4>' });
+	const input = document.getElementById("address");
+	const autocomplete = new google.maps.places.Autocomplete(input);
 
 }
