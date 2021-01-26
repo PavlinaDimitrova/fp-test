@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="./css/style.css">
 <script type="text/javascript" src="./js/jquery-3.5.1.js"></script> 
 <script type="text/javascript" src="./js/gmform.js"></script> 
-<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzTm8BY4MYBzvN4wIbZgQIzJbyqKDYoHI&libraries=places&v=weekly" defer></script>
 <title>Contact form</title>
 </head>
 <body><form  method="get" id="gmform">
@@ -15,4 +14,5 @@
   <span id="telformat">(format 0xxx xxx xxx)</span>
   <label for="web">Website <input type="url" value="" class="ls" id="web" name="weburl" /> </label>
   <input type="submit" class="" value="Save">
-</form>  <div id="map"> </div></body></html>
+</form>  <div id="map"> </div></body>
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzTm8BY4MYBzvN4wIbZgQIzJbyqKDYoHI&callback=initMap&libraries=places" type="text/javascript"></script></html>
