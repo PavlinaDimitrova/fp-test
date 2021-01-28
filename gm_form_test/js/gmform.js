@@ -14,7 +14,7 @@ function validateAddress(){
 		document.getElementById("address").insertAdjacentHTML('afterend', "<p id='addressvalidation' class='validation'>Please enter address!</p>");       
         document.getElementById("address").focus();
         return false;
-	}else if (!/^[a-zA-Z а-яА-Я0-9,.№/'"]*$/g.test(document.getElementById("address").value)) {
+	}else if (!/^[a-zA-Z а-яА-Я0-9,.№/'"„“]*$/g.test(document.getElementById("address").value)) {
         document.getElementById("address").insertAdjacentHTML('afterend', "<p id='addressvalidation' class='validation'>Invalid characters in the address!</p>");
         document.getElementById("address").focus();
         return false;
